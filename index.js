@@ -28,19 +28,21 @@ async function run() {
     // Example route to get users
 
     
-    // app.get('/users', async (req, res) => {
-    //   const users = await userCollection.find().toArray();
-    //   res.send(users);
-    // });
+    app.get('/users', async (req, res) => {
+      const users = await userCollection.find().toArray();
+      res.send(users);
+    });
 
     // Example route to add a user
 
 
-    // app.post('/users', async (req, res) => {
-    //   const newUser = req.body;
-    //   const result = await userCollection.insertOne(newUser);
-    //   res.send(result);
-    // });
+    app.post('/users', async (req, res) => {
+      const newUser = req.body;
+      console.log(req.body);
+      const result = await userCollection.insertOne(newUser);
+      res.send(result);
+
+    });
 
   } catch (error) {
     console.error("MongoDB connection error:", error);
